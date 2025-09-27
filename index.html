@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$XNIU - The Ultimate Crypto Revolution</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #1a1a1a;
+            --accent-color: #ffd700;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --background-dark: #0a0a0a;
+            --background-light: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #ff6b35 0%, #ffd700 100%);
+            --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background: var(--background-dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .language-toggle {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .language-toggle:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero p:first-of-type,
+        .hero p:nth-of-type(2) {
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            font-size: 1.8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
+        }
+
+        .author-signature {
+            font-family: 'Courier New', monospace !important;
+            font-size: 1.2rem !important;
+            font-weight: 500 !important;
+            font-style: italic;
+            text-align: right;
+            margin-top: 1rem !important;
+            margin-bottom: 1rem !important;
+            opacity: 0.8;
+            color: var(--accent-color);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .contract-address {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: var(--gradient-dark);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: white;
+            transition: color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .about-text h2:hover {
+            color: #00ff88;
+            transform: scale(1.05);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .about-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+            justify-content: center;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .mission-text {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .mission-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mission-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .mission-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .mission-text p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .mission-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .mission-highlight {
+            font-size: 1.5rem !important;
+            font-weight: 700 !important;
+            color: var(--accent-color) !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-top: 2rem !important;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            padding: 5rem 0;
+            background-image: url('image/1017.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 26, 26, 0.7);
+            z-index: 1;
+        }
+
+        .timeline .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-date {
+            background: var(--gradient-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .timeline-content {
+            flex: 1;
+            margin-left: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Image Showcase Sections */
+        .image-showcase {
+            padding: 3rem 0;
+            overflow: hidden;
+        }
+
+        .image-flow {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem 0;
+            animation: scrollImages 30s linear infinite;
+        }
+
+        .image-flow.reverse {
+            animation: scrollImagesReverse 35s linear infinite;
+        }
+
+        .showcase-image {
+            flex-shrink: 0;
+            width: 300px;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .showcase-image:hover {
+            transform: scale(1.05);
+        }
+
+        .showcase-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .static-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .static-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .static-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+        }
+
+        .static-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        @keyframes scrollImages {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes scrollImagesReverse {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .footer-section h2 {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-size: 1.2rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-links a:hover {
+            background: var(--gradient-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.6;
+        }
+
+
+        /* Coin Animation */
+        .coin-animation {
+            animation: coinRotate 4s ease-in-out infinite, coinFloat 3s ease-in-out infinite alternate;
+            transform-style: preserve-3d;
+            filter: drop-shadow(0 10px 20px rgba(255, 107, 53, 0.3));
+        }
+
+        @keyframes coinRotate {
+            0% {
+                transform: rotateY(0deg);
+            }
+            50% {
+                transform: rotateY(180deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+
+        @keyframes coinFloat {
+            0% {
+                transform: translateY(0px) rotateY(0deg);
+            }
+            100% {
+                transform: translateY(-10px) rotateY(0deg);
+            }
+        }
+
+        /* Hover effect for coin */
+        .coin-animation:hover {
+            animation-duration: 1s, 1s;
+            filter: drop-shadow(0 15px 30px rgba(255, 107, 53, 0.5));
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-image img {
+                max-height: 300px;
+                margin-top: 2rem;
+            }
+
+            .mission-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .mission-image img {
+                max-height: 350px;
+                margin-top: 2rem;
+            }
+
+            .stats {
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section h2 {
+                font-size: 2rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .timeline-content {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--secondary-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="image/001.png" alt="XNIU Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about" data-en="About" data-zh="关于">关于</a></li>
+                <li><a href="#features" data-en="Vision" data-zh="愿景">愿景</a></li>
+                <li><a href="#timeline" data-en="Development" data-zh="社区发展">社区发展</a></li>
+                <li><a href="#community" data-en="Community" data-zh="社区">社区</a></li>
+            </ul>
+            <button class="language-toggle" onclick="toggleLanguage()">EN</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1><img src="image/002.png" alt="XNIU" class="coin-animation" style="height: clamp(4rem, 12vw, 8rem); width: auto; margin: 0 auto; display: block;"></h1>
+                <p data-en="Careful bro... when Chinese call you niu, it's praise." data-zh="小心兄弟...当中国人叫你牛时，那是夸奖。">小心兄弟...当中国人叫你牛时，那是夸奖。</p>
+                <p data-en="When exchange calls you niu, it might mean margin call is close." data-zh="当交易所叫你牛时，可能意味着爆仓在即。">当交易所叫你牛时，可能意味着爆仓在即。</p>
+                <p class="author-signature" data-en="- Star_okx" data-zh="- Star_okx">- Star_okx</p>
+                
+                <div class="contract-address">
+                    <strong data-en="Contract Address:" data-zh="合约地址:">合约地址:</strong><br>
+                    0xf6962b6ba932afada38197dc1f0e44f103632f2d
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="https://web3.okx.com/zh-hans/token/x-layer/0xf6962b6ba932afada38197dc1f0e44f103632f2d" target="_blank" class="btn btn-primary" data-en="Buy Now!" data-zh="现在去买！">现在去买！</a>
+                    <a href="#about" class="btn btn-secondary" data-en="Learn More" data-zh="了解更多">了解更多</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 data-en="About XNIU" data-zh="关于 XNIU">关于 XNIU</h2>
+                    <p data-en="XNIU originated from the innovative blockchain ecosystem, born from the collective creativity of crypto enthusiasts and blockchain pioneers. Starting with a revolutionary vision, it rapidly evolved into a global phenomenon." data-zh="XNIU源自创新的区块链生态系统，诞生于加密货币爱好者和区块链先驱的集体创造力。从一个革命性的愿景开始，迅速演变成全球现象。">
+                        XNIU源自创新的区块链生态系统，诞生于加密货币爱好者和区块链先驱的集体创造力。从一个革命性的愿景开始，迅速演变成全球现象。
+                    </p>
+                    <p data-en="By fusing cutting-edge blockchain technology with community-driven innovation, XNIU is destined to become a leading force in the crypto universe." data-zh="通过融合尖端区块链技术和社区驱动的创新，XNIU注定成为加密货币宇宙中的领导力量。">
+                        通过融合尖端区块链技术和社区驱动的创新，XNIU注定成为加密货币宇宙中的领导力量。
+                    </p>
+                    <p data-en="Our community is built on the principles of innovation, inclusivity, and financial empowerment. Anyone can join the XNIU movement, regardless of their background or experience." data-zh="我们的社区建立在创新、包容性和金融赋权的原则之上。无论背景如何，任何人都可以加入XNIU运动。">
+                        我们的社区建立在创新、包容性和金融赋权的原则之上。无论背景如何，任何人都可以加入XNIU运动。
+                    </p>
+                </div>
+                <div class="about-image">
+                    <img src="image/003.png" alt="XNIU">
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">1K+</div>
+                    <div class="stat-label" data-en="Community Members" data-zh="社区成员">社区成员</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2K+</div>
+                    <div class="stat-label" data-en="Token Holders" data-zh="代币持有者">代币持有者</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Showcase 1 - Scrolling Images -->
+    <section class="image-showcase">
+        <div class="image-flow">
+            <div class="showcase-image"><img src="image/1001.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1002.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1003.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1004.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1005.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1006.png" alt="XNIU"></div>
+            <!-- Duplicate for seamless loop -->
+            <div class="showcase-image"><img src="image/1001.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1002.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1003.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1004.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1005.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1006.png" alt="XNIU"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 data-en="Our Vision" data-zh="我们的愿景">我们的愿景</h2>
+            <div class="mission-content">
+                <div class="mission-text">
+                    <p data-en="We are backed by OKX, two traffic superstars!" data-zh="我们背靠OKX两大流量巨星！">我们背靠OKX两大流量巨星！</p>
+                    <p data-en="XNIU starts here but doesn't end here!" data-zh="XNIU 始于此却不止于此！">XNIU 始于此却不止于此！</p>
+                    <p data-en="We believe that with the continuous efforts of our community, we will become increasingly stronger!" data-zh="我们相信在社区不断努力下，我们会愈发强大！">我们相信在社区不断努力下，我们会愈发强大！</p>
+                    <p data-en="What we want to do is promote the blockchain community spirit and build the XNIU community into the most cohesive community on X Layer!" data-zh="我们想做的是发扬区块链社区精神，把XNIU社区建设成为X Layer 上最有凝聚力的社区！">我们想做的是发扬区块链社区精神，把XNIU社区建设成为X Layer 上最有凝聚力的社区！</p>
+                    <p data-en="Through continuous community building, let more community members benefit, which is completely consistent with Star_okx's vision!" data-zh="通过不断建设社区，让更多社区成员受益，这和star_okx的愿望完全一致！">通过不断建设社区，让更多社区成员受益，这和star_okx的愿望完全一致！</p>
+                    <p data-en="Meme changes the world!" data-zh="meme 改变世界！">meme 改变世界！</p>
+                    <p class="mission-highlight" data-en="This is what $XNIU means! WE ARE NOBODY!" data-zh="这就是 $XNIU 意义所在！WE ARE NOBODY！">这就是 $XNIU 意义所在！WE ARE NOBODY！</p>
+                </div>
+                <div class="mission-image">
+                    <img src="image/004.png" alt="XNIU Vision">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Showcase 2 - Reverse Scrolling Images -->
+    <section class="image-showcase">
+        <div class="image-flow reverse">
+            <div class="showcase-image"><img src="image/1007.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1008.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1009.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1010.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1011.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1012.png" alt="XNIU"></div>
+            <!-- Duplicate for seamless loop -->
+            <div class="showcase-image"><img src="image/1007.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1008.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1009.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1010.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1011.png" alt="XNIU"></div>
+            <div class="showcase-image"><img src="image/1012.png" alt="XNIU"></div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline">
+        <div class="container">
+            <h2 data-en="Community Development" data-zh="社区发展">社区发展</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-date">2025年9月20日</div>
+                    <div class="timeline-content">
+                        <h3 data-en="Token Deployment" data-zh="代币部署">代币部署</h3>
+                        <p data-en="Token successfully deployed on X Layer" data-zh="代币在X Layer上成功部署">代币在X Layer上成功部署</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025年9月23日</div>
+                    <div class="timeline-content">
+                        <h3 data-en="Community Establishment" data-zh="社区成立">社区成立</h3>
+                        <p data-en="Community established and token avatar confirmed" data-zh="社区成立，并确定代币头像">社区成立，并确定代币头像</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025年9月24日</div>
+                    <div class="timeline-content">
+                        <h3 data-en="Community Fundraising" data-zh="社区筹款">社区筹款</h3>
+                        <p data-en="Community initiated fundraising for community building" data-zh="社区发起捐款用于社区建设">社区发起捐款用于社区建设</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025年9月27日</div>
+                    <div class="timeline-content">
+                        <h3 data-en="Website Launch" data-zh="网站上线">网站上线</h3>
+                        <p data-en="Community website successfully launched and AVE updated" data-zh="社区网站成功上线并更新AVE">社区网站成功上线并更新AVE</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content" style="text-align: center; font-style: italic; opacity: 0.8;">
+                        <p data-en="<span style='color: #00ff88; font-weight: 600;'>XNIU</span> building continues, to be continued..." data-zh="<span style='color: #00ff88; font-weight: 600;'>XNIU</span> 建设还在进行中，未完待续..."><span style='color: #00ff88; font-weight: 600;'>XNIU</span> 建设还在进行中，未完待续...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Showcase 3 - Static Grid -->
+    <section class="image-showcase">
+        <div class="container">
+            <div class="static-images">
+                <div class="static-image"><img src="image/1013.png" alt="XNIU"></div>
+                <div class="static-image"><img src="image/1014.png" alt="XNIU"></div>
+                <div class="static-image"><img src="image/1015.png" alt="XNIU"></div>
+                <div class="static-image"><img src="image/1016.png" alt="XNIU"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="community">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h2 data-en="Join the XNIU Revolution" data-zh="加入XNIU革命">加入XNIU革命</h2>
+                    <p data-en="Become part of our growing community and stay updated with the latest XNIU news and memes" data-zh="成为我们不断成长的社区的一员，随时了解最新的XNIU新闻和meme">成为我们不断成长的社区的一员，随时了解最新的XNIU新闻和meme</p>
+                    <div class="footer-links">
+                        <a href="https://x.com/xniucto_okx?s=21" target="_blank" data-en="🐦 Twitter" data-zh="🐦 推特">🐦 推特</a>
+                        <a href="https://t.me/XNIU_community_OKX" target="_blank" data-en="📱 Telegram" data-zh="📱 电报群">📱 电报群</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p data-en="© 2024 XNIU. All rights reserved. | XNIU is a cryptocurrency for entertainment purposes only. Invest responsibly." data-zh="© 2024 XNIU. 保留所有权利。| XNIU是一种仅用于娱乐目的的加密货币。请谨慎投资。">
+                    © 2024 XNIU. 保留所有权利。| XNIU是一种仅用于娱乐目的的加密货币。请谨慎投资。
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let isEnglish = true;
+
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const elements = document.querySelectorAll('[data-en][data-zh]');
+            const toggleButton = document.querySelector('.language-toggle');
+            
+            elements.forEach(element => {
+                if (isEnglish) {
+                    element.innerHTML = element.getAttribute('data-en');
+                    toggleButton.textContent = '中文';
+                } else {
+                    element.innerHTML = element.getAttribute('data-zh');
+                    toggleButton.textContent = 'EN';
+                }
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(26, 26, 26, 0.98)';
+            } else {
+                header.style.background = 'rgba(26, 26, 26, 0.95)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .timeline-item, .about-text').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Copy contract address functionality
+        document.querySelector('.contract-address').addEventListener('click', function() {
+            const address = '0xf6962b6ba932afada38197dc1f0e44f103632f2d';
+            navigator.clipboard.writeText(address).then(() => {
+                const originalText = this.innerHTML;
+                this.innerHTML = '<strong>已复制到剪贴板! / Copied to clipboard!</strong>';
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                }, 2000);
+            });
+        });
+
+        // Initialize page to show English on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('[data-en][data-zh]');
+            const toggleButton = document.querySelector('.language-toggle');
+            
+            elements.forEach(element => {
+                element.innerHTML = element.getAttribute('data-en');
+            });
+            toggleButton.textContent = '中文';
+        });
+
+    </script>
+</body>
+</html>
